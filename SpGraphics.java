@@ -10,11 +10,17 @@ public class SpGraphics extends JPanel {
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Java 2D Skeleton");
-        frame.add(new SpImage(40));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        if(args.length >= 1)
+        {
+            int boardSize = Integer.parseInt(args[0]);
+            JFrame frame = new JFrame("Java 2D Skeleton");
+            frame.add(new SpImage(boardSize));
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(62*boardSize, 38*(boardSize+1));
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }else{
+            System.out.print("no argument given");
+        }
     }
 }

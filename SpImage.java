@@ -39,7 +39,7 @@ public class SpImage extends Component
 
   public void drawHex(Graphics2D g2d, int type, int j, int k, int m)
   { 
-    int realWidth = (m+k-j)*31;
+    int realWidth = (m+k-j)*31-31;
     int realHeight = (k+j)*19;
     g2d.drawImage(hexes[type],realWidth,realHeight,null);
   }
