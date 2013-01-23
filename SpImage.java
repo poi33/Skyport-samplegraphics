@@ -9,21 +9,30 @@ import java.util.Random;
 
 public class SpImage extends Component
 {
+  // Image board;//
+  Image background;
   Image[] hexes;
   Image test;
   int field[][];
-
+  int boardWidth;
+  int boardHeight;
   public void paint(Graphics g)
   {
-    Graphics2D g2d = (Graphics2D) g;
-
+    // Graphics2D mainG = (Graphics2D) g;//
+    Graphics2D g2d = (Graphics2D) g;// board.getGraphics(); Nevermind, didn't work
+    drawBackground(g2d);
     drawBoard(g2d, field);
+    // mainG.drawImage(board,0,0,null);//
 
   }
   public SpImage(int fieldSize)
   {
+    boardWidth = 62*fieldSize;
+    boardHeight =38*(fieldSize+1);
     field = new int[fieldSize][fieldSize];
     hexes = new Image[7];
+
+    background = loadImage("starrysky.png");
     hexes[0] = loadImage("tileBlack.png");
     hexes[1] = loadImage("tileBlue.png");
     hexes[2] = loadImage("tileGrey.png");
@@ -42,6 +51,13 @@ public class SpImage extends Component
     int realWidth = (m+k-j)*31-31;
     int realHeight = (k+j)*19;
     g2d.drawImage(hexes[type],realWidth,realHeight,null);
+  }
+
+  public void drawBackground(Graphics2D g2d)
+  {
+    for(int i = 0; i < boardWidth; i += background.getWidth(null))
+      for(int j = 0; j < boardHeight; j += background.getHeight(null))
+        g2d.drawImage(background,i,j,null);
   }
 
   public void drawBoard(Graphics2D g2d, int[][] board)
