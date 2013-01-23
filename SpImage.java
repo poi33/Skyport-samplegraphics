@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class SpImage extends Component
 {
-  // Image board;//
   Image background;
   Image[] hexes;
   Image test;
@@ -18,11 +17,8 @@ public class SpImage extends Component
   int boardHeight;
   public void paint(Graphics g)
   {
-    // Graphics2D mainG = (Graphics2D) g;//
-    Graphics2D g2d = (Graphics2D) g;// board.getGraphics(); Nevermind, didn't work
-    drawBackground(g2d);
+    Graphics2D g2d = (Graphics2D) g;drawBackground(g2d);
     drawBoard(g2d, field);
-    // mainG.drawImage(board,0,0,null);//
 
   }
   public SpImage(int fieldSize)
@@ -42,8 +38,7 @@ public class SpImage extends Component
     hexes[6] = loadImage("tileYellow.png");
     for (int i = 0; i<field.length; i++)
       for (int j = 0; j<field.length; j++)
-        field[i][j] = (int) Math.floor(Math.random()*7);
-    //hexes = {loadImage("tileBlack.png"),loadImage("tileBlue.png"),loadImage("tileGrey.png"),loadImage("tileGreen.png"),loadImage("tileRed.png"),loadImage("tileOrange.png"),loadImage("tileYellow.png")};
+        field[i][j] = (int) Math.floor(Math.random()*7); //hexes = {loadImage("tileBlack.png"),loadImage("tileBlue.png"),loadImage("tileGrey.png"),loadImage("tileGreen.png"),loadImage("tileRed.png"),loadImage("tileOrange.png"),loadImage("tileYellow.png")};
   }
 
   public void drawHex(Graphics2D g2d, int type, int j, int k, int m)
