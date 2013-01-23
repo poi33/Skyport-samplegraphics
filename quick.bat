@@ -1,4 +1,4 @@
 javac SpImage.java
 javac SpGraphics.java
-java SpGraphics 10
-@pause
+java SpGraphics 15
+@quit

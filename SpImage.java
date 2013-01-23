@@ -62,6 +62,7 @@ public class SpImage extends Component
     try {
       img = ImageIO.read(new File(imageName));
     } catch (IOException e) {}
+	// THIS IS NOT HOW YOU REtURN AN EXCEPTION!
     return img;
   }
 }
